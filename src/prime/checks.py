@@ -1,5 +1,6 @@
 import pandas as pd
 
+
 def find_missing_channel(df: pd.DataFrame) -> pd.DataFrame:
     """Клиенты без канала привлечения."""
     return df[df["acquisition_channel"].isna()]
@@ -18,6 +19,4 @@ def find_duplicate_payments(df: pd.DataFrame, gap_minutes: int = 20) -> pd.DataF
 
 def find_nonpositive_amounts(df: pd.DataFrame) -> pd.DataFrame:
     """Покупки с невозможной суммой."""
-
-    # Оставляем строки, где сумма покупки меньше или равна нулю
     return df.loc[df["amount"] <= 0]
